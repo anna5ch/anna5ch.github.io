@@ -1,0 +1,351 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif; /* Gentium Basic als Ergänzungsschriftart */
+    color: #fff; /* Farbe für den Text anpassen */
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Hintergrundfarbe des Menüs mit Transparenz */
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    max-height: 50px; /* Höhe des Logos anpassen */
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    margin-left: 20px; /* Abstand zwischen den Menüpunkten anpassen */
+    position: relative;
+}
+
+
+
+nav a:hover, nav a.active {
+    text-decoration: underline;
+}
+
+.welcome-section {
+  position: relative;
+  background: url('images/Spazieren-21.jpg') center center fixed;
+  background-size: cover;
+  text-align: left;
+  padding: 80px 20px;
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  background-attachment: scroll;
+}
+
+.welcome-section h1 {
+    font-family: 'Courier', monospace;
+    margin-left: 45px;
+    font-size: 70px; /* Sanchez als Hautpschriftart für den Willkommenstext */
+    opacity: 1; /* Initial opacity */
+    transition: opacity 0.5s; /* Smooth transition for opacity changes */
+
+}
+.welcome-section::before {
+    content: "";
+    position: absolute;
+    top: 330px;
+    left: 35px;
+    height: 20%;
+    width: 2px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.black-section {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+}
+
+.transparent-section {
+    background: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.underline {
+    color: #fff;
+    display: inline-block;
+    width: 1000px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7); /* Adjust the alpha value (0.5 for 50% opacity) */
+    padding-bottom: 10px; /* Abstand des Unterstrichs anpassen */
+    margin-bottom: 10px; /* Abstand zum nächsten Abschnitt anpassen */
+    text-align: left;
+}
+
+.right-image {
+    display: flex;
+    justify-content: space-around; /* Keep the space-around if needed */
+    align-items: center; /* Center items vertically */
+    padding: 40px;
+    background-color: #000;
+    color: #fff;
+}
+
+.right-image img {
+    max-width: 40%;
+    border-radius: 8px;
+}
+
+.right-image-text {
+    max-width: 50%;
+    order: 1;
+}
+
+.right-image-text h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    opacity: 1; /* Set opacity to 1 for the header */
+}
+
+.right-image-text p {
+    opacity: 0.5; /* Set the desired opacity value for the text */
+}
+
+.left-image {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px;
+    background-color: #000;
+    color: #fff;
+}
+
+.left-image img {
+    max-width: 40%;
+    border-radius: 8px;
+    order: 2;
+}
+
+.left-image-text {
+    max-width: 50%;
+    order: 1;
+}
+
+.left-image-text h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    opacity: 1; /* Set opacity to 1 for the header */
+}
+
+.left-image-text p {
+    opacity: 0.5; /* Set the desired opacity value for the text */
+}
+
+
+/*##############*/
+/* BLOG SECTION*/
+/*##############*/
+
+.blog-section {
+    position: relative;
+    overflow: hidden;
+    text-align: center; /* Center the text within the blog section */
+    padding-bottom: 40px;
+}
+
+.blog-background {
+  background: url('images/Flüeli-Ranft2021-01.jpg') center center fixed;
+  background-size: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.blog-carousel {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #fff #000;
+  padding: 150px;
+}
+
+.blog-header {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 10px; /* Add margin to the bottom for spacing */
+    color: #fff; /* Set the text color */
+}
+
+.blog-post {
+    flex: 0 0 auto;
+    margin-right: 20px;
+    margin-left: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden; /* Hide overflow content */
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max width: 400px
+    max-height: 400px; /* Set a fixed maximum height for the blog post */
+    transition: transform 0.5s ease;
+}
+
+.blog-post img {
+  width: 100%; /* Set the width to 100% to ensure responsiveness */
+  max-width: 400px; /* Set a maximum width for the image */
+  height: auto;
+  border-bottom: 2px solid #ccc; /* Optional: Add a border between image and text */
+}
+
+.blog-post-content {
+  padding: 20px;
+  text-align: center;
+  overflow: auto; /* Allow content to be scrolled if it exceeds the height */
+}
+
+.blog-post h3 {
+    /* header of blog article */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.blog-section {
+  position: relative;
+}
+
+.full-width-post {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    width: 0;
+    max-height: 80vh;
+    overflow: auto;
+    background-color: white;
+    z-index: 1000;
+    padding: 20px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: width 1s ease, opacity 1s ease; /* Adjusted transition duration for smoother effect */
+    cursor: pointer;
+}
+.hide-carousel {
+  opacity: 0;
+}
+.blog-post:hover {
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Highlight with white shadow on hover */
+}
+.blog-post-date {
+  font-size: 14px;
+  color: #888; /* Set the color for the date to grey */
+  margin-bottom: 5px; /* Adjust spacing between date and header */
+}
+
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+#full-width-image {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+
+/* Style for the title and content in full-width mode */
+#full-width-title, #full-width-content {
+  color: #333; /* Set your desired text color */
+}
+
+#blog-carousel {
+  transition: opacity 0.5s ease; /* Adjusted transition duration for smoother effect */
+}
+
+/*###################*/
+/* Portfolio SECTION*/
+/*##################*/
+
+
+.portfolio-columns {
+    display: flex;
+    justify-content: space-around;
+    padding: 80px 20px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.portfolio-column {
+    flex: 1;
+    margin: 20px;
+}
+
+.portfolio-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 30px; /* Adjust margin-bottom for more spacing */
+}
+
+/*################*/
+/* CONTACT SECTION*/
+/*################*/
+
+
+input, textarea {
+    width: 400px;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 2px solid #f5eae1; /* Beige border */
+    background-color: #333; /* Dark grey background */
+    color: #fff;
+    border-radius: 20px;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #b09e8f; /* Light beige border on focus */
+}
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+  background-color: #000; /* Beige */
+  color: White; /* Dark text color */
+  padding: 20px;
+  text-align: center;
+}
