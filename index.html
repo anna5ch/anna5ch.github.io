@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="new_style.css">
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo">
+        <nav>
+            <a href="test.html">Startseite</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="Kontakt.html">Kontakt</a>
+            <!-- Weitere Menüpunkte hier einfügen -->
+        </nav>
+    </header>
+
+    <section class="welcome-section">
+        <h1>Willkommen bei Anna und Lukas Fotografie</h1>
+    </section>
+
+    <section class="black-section">
+        <p class="underline">Über uns</p>
+    </section>
+
+    <section class="right-image">
+        <img src="images/IMG_1294.JPG" alt="Über uns Bild">
+        <div class="right-image-text">
+            <h2>Über uns</h2>
+            <p> Hallo steht der Text über Anna und Lukas Fotografie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed urna at erat efficitur ultricies. Quisque rhoncus ligula vel tortor tristique, ac ultrices elit commodo.</p>
+        </div>
+    </section>
+
+    <section class="left-image">
+      <img src="images/IMG_1254.JPG" alt="Über uns Bild">
+      <div class="left-image-text">
+        <h2>Pferdefotografie</h2>
+        <p> Hier steht der zweite Text über Anna und Lukas Fotografie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed urna at erat efficitur ultricies. Quisque rhoncus ligula vel tortor tristique, ac ultrices elit commodo.</p>
+      </div>
+    </section>
+
+
+    <section class="right-image">
+        <img src="images/IMG_1294.JPG" alt="Über uns Bild">
+        <div class="right-image-text">
+            <h2>Pferdefotografie</h2>
+            <p> Hier steht der Text über Anna und Lukas Fotografie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed urna at erat efficitur ultricies. Quisque rhoncus ligula vel tortor tristique, ac ultrices elit commodo.</p>
+        </div>
+    </section>
+
+
+
+    <section class="blog-section">
+        <div class="blog-background">
+          <p class="blog-header">Blog</p>
+        </div>
+        <div class="blog-carousel" id="blog-carousel">
+          <div class="blog-post" onclick="showFullWidthPost(1)">
+            <img src="images/Wanderung_Berner_Oberland_23-152.jpg" alt="Blog Post 1">
+            <p class="blog-post-date">September 2023</p>
+            <h3>Das Berner Oberland</h3>
+            <p>Summary for Carousel: Lorem ipsum dolor sit amet...</p>
+            <div style="display: none;">
+              <p>Full Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            </div>
+          </div>
+          <div class="blog-post" onclick="showFullWidthPost(2)">
+            <img src="images/WJT_Porto-059.jpg" alt="Blog Post 2">
+            <p class="blog-post-date">Juli/August 2023</p>
+            <h3>Weltjugendtag Lissabon 2023</h3>
+            <p>Summary for Carousel: Another summary text...</p>
+            <div style="display: none;">
+              <p>Full Text: Full content for the second blog post...</p>
+            </div>
+          </div>
+          <div class="blog-post" onclick="showFullWidthPost(3)">
+            <img src="images/Portugal_Roadtrip_2023-044.jpg" alt="Blog Post 3">
+            <p class="blog-post-date"> März 2023</p>
+            <h3>Roadtrip von München nach Porto</h3>
+            <p>Summary for Carousel: Summary for the...</p>
+            <div style="display: none;">
+              <p>Full Text: "Begeben Sie sich auf eine unvergessliche Reise, während wir auf einem Roadtrip von München nach Porto malerische Landschaften, charmante Städte und kulturelle Schätze erkunden. Begleiten Sie uns, während wir Reisetipps, versteckte Juwelen und die lebendigen Erlebnisse teilen, die uns auf unserer Reise begegnen. Von der bayerischen Schönheit Münchens bis zum küstennahen Zauber von Porto verspricht dieser Roadtrip ein Mosaik aus Abenteuern und Entdeckungen. Schnallen Sie sich an für eine Reiseerzählung voller malerischer Ausblicke, kultureller Genüsse und der Freude der offenen Straße."</p>
+            </div>
+          </div>
+          <!-- Repeat similar structure for additional blog posts -->
+        </div>
+      </section>
+
+      <div class="full-width-post" id="full-width-post" onclick="hideFullWidthPost()">
+        <div class="back-arrow">←</div>
+        <img id="full-width-image" src="" alt="Full Width Blog Post">
+        <h3 id="full-width-title"></h3>
+        <p id="full-width-content"></p>
+      </div>
+
+
+    <footer>
+      <p>&copy; 2023 Anna & Lukas Photography. All rights reserved.</p>
+      <a href="https://www.instagram.com/akaluckyshot" target="_blank" rel="noopener noreferrer">
+      <img src="images/instagram-icon.png" alt="Instagram" width="20" height="20">
+      </a>
+      <p><a href="datenschutz.html">Datenschutz</a> | <a href="impressum.html">Impressum</a></p>
+    </footer>
+
+    <script>
+    function showFullWidthPost(postNumber) {
+      const post = document.querySelector(`.blog-post:nth-child(${postNumber})`);
+      const imageSrc = post.querySelector('img').src;
+      const title = post.querySelector('h3').textContent;
+      const summary = post.querySelector('p').textContent;
+      const fullText = post.querySelector('div').textContent;
+
+      document.getElementById('full-width-image').src = imageSrc;
+      document.getElementById('full-width-title').textContent = title;
+      document.getElementById('full-width-content').textContent = fullText;
+
+      const fullWidthPost = document.querySelector('.full-width-post');
+      fullWidthPost.style.width = '100%'; // Expand to full width
+      fullWidthPost.style.opacity = '1'; // Make it visible
+
+      // Adjust opacity for a smoother transition
+      document.getElementById('blog-carousel').classList.add('hide-carousel');
+    }
+
+    function hideFullWidthPost() {
+      const fullWidthPost = document.querySelector('.full-width-post');
+      fullWidthPost.style.width = '0'; // Collapse to zero width
+      fullWidthPost.style.opacity = '0'; // Make it transparent
+
+      // Adjust opacity for a smoother transition
+      document.getElementById('blog-carousel').classList.remove('hide-carousel');
+    }
+      </script>
+</body>
+</html>
