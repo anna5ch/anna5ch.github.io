@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/new_style.css">
+    <title>Portfolio</title>
+</head>
+<body>
+  <div id="header-placeholder"></div>
+    <script src="../includes/header.js"></script>
+
+  <section class="welcome-section">
+      <h1>Kontakt</h1>
+  </section>
+  <section class="black-section">
+    <p class="underline">Kontaktiere uns</p>
+    <p> Wenn du Fragen hast oder unsere Dienstleistung in Anspruch nehmen möchtest, kannst du uns hier gerne kontaktieren! Wir freuen uns auf deine Nachricht :)</p>
+
+    <form action="process-form.php" method="POST">
+      <label for="firstName"></label>
+      <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+        <p>
+        </p>
+        <label for="lastName"></label>
+        <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+
+        <p>
+        </p>
+        <label for="email"></label>
+        <input type="email" id="email" name="email" placeholder="Deine E-Mail Adresse" required>
+        <p>
+        </p>
+        <label for="message"></label>
+        <textarea id="message" name="message" rows="4" placeholder="Deine Nachricht an uns" required></textarea>
+        <p>
+        </p>
+        <button type="submit">Send</button>
+    </form>
+    <div id="footer-placeholder"></div>
+    <script src="../includes/footer.js"></script>
+
+</body>
+
+</html>
