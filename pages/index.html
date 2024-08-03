@@ -12,7 +12,7 @@
     <script src="../includes/header.js"></script>
 
     <section class="welcome-section">
-      <h1>Willkommen bei Anna und Lukas Fotografie</h1>
+      <h1>authentische und vielseitige Fotografie</h1>
     </section>
 
     <section class="black-section">
@@ -23,7 +23,7 @@
         <img src="../images/fullsize/IMG_1294.JPG" alt="Über uns Bild">
         <div class="right-image-text">
             <h2>Über uns</h2>
-            <p> Hallo steht der Text über Anna und Lukas Fotografie. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed urna at erat efficitur ultricies. Quisque rhoncus ligula vel tortor tristique, ac ultrices elit commodo.</p>
+            <p> Und wir sind die Gesichter hinter der Kamera, Anna und Lukas. Wir sind mittlerweile seit vielen Jahren leidenschaftliche Fotografen mit jeweils verschiedenen Vorlieben für die Fotografie. Lukas fokusiert sich auf Event- und Portrait-Fotografie und Anna geht ihrer Leidenschaft der Tierfotografie nach.  </p>
         </div>
     </section>
 
@@ -48,19 +48,29 @@
 
     <section class="blog-section">
       <div class="blog-background">
-        <p class="blog-header">Blog</p>
+        <p class="underline">Blog</p>
       </div>
+
       <div class="blog-carousel" id="blog-carousel">
-        <div class="blog-post" onclick="showFullWidthPost(1)">
+        <div class="blog-post" data-post-date="2024-06" onclick="showFullWidthPost(this)">
+          <img class="lazy" src="../images/thumbnail/Palpougnasee_07_10_2023-04-thumb.jpg" data-src="../images/fullsize/Palpougnasee_07_10_2023-04.jpg" alt="Blog Post 4">
+          <p class="blog-post-date">Juni 2024</p>
+          <h3>Die Schönheit der Berge in Graubünden</h3>
+          <p>Seit unserem Umzug nach Graubünden haben wir die magische Berg- und Seenlandschaft erkundet. Begleitet uns auf eine Reise durch die atemberaubenden Naturschönheiten dieser Region.</p>
+          <div style="display: none;">
+            <p>Seit unserem Umzug in den Kanton Graubünden haben wir die faszinierende Berg- und Seenlandschaft ausgiebig erkundet. Die majestätischen Gipfel und glasklaren Seen dieser Region versprühen einen Hauch von Magie und bieten endlose Abenteuer. Begleitet uns auf einer Reise durch die atemberaubenden Naturschönheiten, die Graubünden zu bieten hat.</p>
+          </div>
+        </div>
+        <div class="blog-post" data-post-date="2023-09" onclick="showFullWidthPost(this)">
           <img class="lazy" src="../images/thumbnail/Wanderung_Berner_Oberland_23-152-thumb.jpg" data-src="../images/fullsize/Wanderung_Berner_Oberland_23-152.jpg" alt="Blog Post 1">
           <p class="blog-post-date">September 2023</p>
           <h3>Das Berner Oberland</h3>
-          <p>Summary for Carousel: Lorem ipsum dolor sit amet...</p>
+          <p> Ein Blick auf unsere Erlebnisse im Berner Oberland: Majestätische Berge, klare Seen und charmante Dörfer - ein echtes Highlight unseres Roadtrips in der Schweiz!</p>
           <div style="display: none;">
-            <p>Full Text: Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+            <p>Das Berner Oberland hat uns während unseres Urlaubs in seinen Bann gezogen. Mit seinen majestätischen Bergen, kristallklaren Seen und charmanten Dörfern bietet diese Region eine Fülle an atemberaubenden Spots. Von den beeindruckenden Gipfeln des Eigers, Mönchs und Jungfrau bis zu den idyllischen Ufern des Brienzersees haben wir die schönsten Plätze erkundet und unvergessliche Momente erlebt. Erlebt mit uns die Faszination einer der bezauberndsten Regionen der Schweiz.</p>
           </div>
         </div>
-        <div class="blog-post" onclick="showFullWidthPost(2)">
+        <div class="blog-post" data-post-date="2023-07" onclick="showFullWidthPost(this)">
           <img class="lazy" src="../images/thumbnail/WJT_Porto-059-thumb.jpg" data-src="../images/fullsize/WJT_Porto-059.jpg" alt="Blog Post 2">
           <p class="blog-post-date">Juli/August 2023</p>
           <h3>Weltjugendtag Lissabon 2023</h3>
@@ -69,7 +79,7 @@
             <p>Full Text: Full content for the second blog post...</p>
           </div>
         </div>
-        <div class="blog-post" onclick="showFullWidthPost(3)">
+        <div class="blog-post" data-post-date="2023-03" onclick="showFullWidthPost(this)">
           <img class="lazy" src="../images/thumbnail/Portugal_Roadtrip_2023-044-thumb.jpg" data-src="../images/fullsize/Portugal_Roadtrip_2023-044.jpg" alt="Blog Post 3">
           <p class="blog-post-date"> März 2023</p>
           <h3>Roadtrip von München nach Porto</h3>
@@ -78,6 +88,7 @@
             <p>Full Text: "Begeben Sie sich auf eine unvergessliche Reise, während wir auf einem Roadtrip von München nach Porto malerische Landschaften, charmante Städte und kulturelle Schätze erkunden. Begleiten Sie uns, während wir Reisetipps, versteckte Juwelen und die lebendigen Erlebnisse teilen, die uns auf unserer Reise begegnen. Von der bayerischen Schönheit Münchens bis zum küstennahen Zauber von Porto verspricht dieser Roadtrip ein Mosaik aus Abenteuern und Entdeckungen. Schnallen Sie sich an für eine Reiseerzählung voller malerischer Ausblicke, kultureller Genüsse und der Freude der offenen Straße."</p>
           </div>
         </div>
+       
         <!-- Repeat similar structure for additional blog posts -->
       </div>
   </section>
@@ -95,33 +106,47 @@
   
 
     <script>
-    function showFullWidthPost(postNumber) {
-      const post = document.querySelector(`.blog-post:nth-child(${postNumber})`);
-      const imageSrc = post.querySelector('img').src;
-      const title = post.querySelector('h3').textContent;
-      const summary = post.querySelector('p').textContent;
-      const fullText = post.querySelector('div').textContent;
+        document.addEventListener('DOMContentLoaded', () => {
+        const blogCarousel = document.getElementById('blog-carousel');
+        const blogPosts = Array.from(blogCarousel.getElementsByClassName('blog-post'));
 
-      document.getElementById('full-width-image').src = imageSrc;
-      document.getElementById('full-width-title').textContent = title;
-      document.getElementById('full-width-content').textContent = fullText;
+        // Sortiere die Blog-Posts basierend auf data-post-date in absteigender Reihenfolge
+        blogPosts.sort((a, b) => new Date(b.dataset.postDate) - new Date(a.dataset.postDate));
 
-      const fullWidthPost = document.querySelector('.full-width-post');
-      fullWidthPost.style.width = '100%'; // Expand to full width
-      fullWidthPost.style.opacity = '1'; // Make it visible
+        // Leere den aktuellen Inhalt des blogCarousel
+        blogCarousel.innerHTML = '';
 
-      // Adjust opacity for a smoother transition
-      document.getElementById('blog-carousel').classList.add('hide-carousel');
+        // Füge die sortierten Blog-Posts zurück zum blogCarousel hinzu
+        blogPosts.forEach(post => blogCarousel.appendChild(post));
+    });
+
+    function showFullWidthPost(postElement) {
+        const imageSrc = postElement.querySelector('img').src;
+        const title = postElement.querySelector('h3').textContent;
+        const summary = postElement.querySelector('p').textContent;
+        const fullText = postElement.querySelector('div').textContent;
+
+        document.getElementById('full-width-image').src = imageSrc;
+        document.getElementById('full-width-title').textContent = title;
+        document.getElementById('full-width-content').textContent = fullText;
+
+        const fullWidthPost = document.querySelector('.full-width-post');
+        fullWidthPost.style.width = '100%'; // Expand to full width
+        fullWidthPost.style.opacity = '1'; // Make it visible
+
+        // Verstecke das Carousel für den Übergang
+        document.getElementById('blog-carousel').classList.add('hide-carousel');
     }
 
     function hideFullWidthPost() {
-      const fullWidthPost = document.querySelector('.full-width-post');
-      fullWidthPost.style.width = '0'; // Collapse to zero width
-      fullWidthPost.style.opacity = '0'; // Make it transparent
+        const fullWidthPost = document.querySelector('.full-width-post');
+        fullWidthPost.style.width = '0'; // Collapse to zero width
+        fullWidthPost.style.opacity = '0'; // Make it transparent
 
-      // Adjust opacity for a smoother transition
-      document.getElementById('blog-carousel').classList.remove('hide-carousel');
+        // Zeige das Carousel wieder an
+        document.getElementById('blog-carousel').classList.remove('hide-carousel');
     }
+
       </script>
       <script>
         document.addEventListener("DOMContentLoaded", function() {

@@ -35,8 +35,6 @@ nav a {
     position: relative;
 }
 
-
-
 nav a:hover, nav a.active {
     text-decoration: underline;
 }
@@ -57,10 +55,10 @@ nav a:hover, nav a.active {
 }
 
 .welcome-section h1 {
-    font-family: 'Courier', monospace;
+    font-family: 'Quicksand', sans-serif;
     margin-left: 45px;
-    font-size: 70px; /* Sanchez als Hautpschriftart für den Willkommenstext */
-    opacity: 1; /* Initial opacity */
+    font-size: 50px; /* Sanchez als Hautpschriftart für den Willkommenstext */
+    opacity: 0.8; /* Initial opacity */
     transition: opacity 0.5s; /* Smooth transition for opacity changes */
 
 }
@@ -166,10 +164,13 @@ nav a:hover, nav a.active {
     padding-bottom: 40px;
 }
 
+
 .blog-background {
   background: url('../../images/fullsize/Flüeli-Ranft2021-01.jpg') center center fixed;
   background-size: cover;
+  color: black;
   position: absolute;
+  padding: 20px;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -202,16 +203,19 @@ nav a:hover, nav a.active {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start; /* Ensure content starts from the top */
     max-width: 400px;
-    max-height: 400px; /* Set a fixed maximum height for the blog post */
-    transition: transform 0.5s ease;
+    height: auto; /* Allow height to adjust based on content */
+    transition: transform 0.2s ease;
 }
 
 .blog-post img {
   width: 100%; /* Set the width to 100% to ensure responsiveness */
   max-width: 400px; /* Set a maximum width for the image */
-  height: auto;
+  height: 220px;
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+  object-position: top;
+  align-items: top;
   border-bottom: 2px solid #ccc; /* Optional: Add a border between image and text */
 }
 
